@@ -1,0 +1,6 @@
+image: docker:latest
+
+build:
+  stage: build
+  script:
+    - docker build -t test .
