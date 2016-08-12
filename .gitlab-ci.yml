@@ -1,6 +1,9 @@
-image: docker:latest
-
-build:
-  stage: build
+dockerMeteorImage:
+  stage: docker
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker info
   script:
-    - docker build -t test .
+    - docker build -t meteor .
