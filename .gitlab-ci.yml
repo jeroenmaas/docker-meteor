@@ -1,4 +1,4 @@
-dockerMeteorImage:
+Meteor (Latest) Docker Image:
   stage: build
   image: docker:latest
   services:
