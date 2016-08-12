@@ -1,5 +1,5 @@
 ## Init ##
-FROM node:0.10.41
+FROM node:4.4.7
 MAINTAINER Lars van Herk <me@larsvanherk.com>
 
 ## Update package lists and upgrade ##
