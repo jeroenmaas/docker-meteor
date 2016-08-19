@@ -1,9 +1,28 @@
-Meteor (Latest) Docker Image:
+image: docker:latest
+services:
+  - docker:dind
+
+before_script:
+  - docker info
+
+LATEST:
   stage: build
-  image: docker:latest
-  services:
-    - docker:dind
-  before_script:
-    - docker info
   script:
-    - docker build -t meteor .
+    - docker build -t meteor-latest .
+  after_script:
+    - docker login -u $DH_USER -p $DH_PASS
+    - docker tag meteor-latest larsvh/meteor:latest
+    - docker push larsvh/meteor
+  only:
+    - master
+
+v1.2.1:
+  stage: build
+  script:
+    - docker build -t meteor-1.2.1 .
+  after_script:
+    - docker login -u $DH_USER -p $DH_PASS
+    - docker tag meteor-1.2.1 larsvh/meteor:1.2.1
+    - docker push larsvh/meteor
+  only:
+    - v1.2.1
