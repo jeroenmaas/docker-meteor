@@ -7,12 +7,15 @@ variables:
 
 before_script:
   - docker info
+  - docker login -u $DH_USER -p $DH_PASS hub.docker.com
 
 LATEST:
   stage: build
   script:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:latest
+    - docker images
+    - docker push larsvh/meteor
   artifacts:
     paths:
       - /var/lib/docker/
@@ -24,15 +27,10 @@ v1.2.1:
   script:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:1.2.1
+    - docker images
+    - docker push larsvh/meteor
   artifacts:
     paths:
       - /var/lib/docker/
   only:
     - v1.2.1
-
-PUBLISH:
-  stage: deploy
-  script:
-    - docker login -u $DH_USER -p $DH_PASS hub.docker.com
-    - docker images
-    - docker push larsvh/meteor
