@@ -7,7 +7,6 @@ variables:
 
 before_script:
   - docker info
-  - docker login -u $DH_USER -p $DH_PASS hub.docker.com
 
 LATEST:
   stage: build
@@ -15,6 +14,7 @@ LATEST:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:latest
     - docker images
+    - docker login -u $DH_USER -p $DH_PASS hub.docker.com
     - docker -D push larsvh/meteor
   artifacts:
     paths:
@@ -28,6 +28,7 @@ v1.2.1:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:1.2.1
     - docker images
+    - docker login -u $DH_USER -p $DH_PASS https://hub.docker.com
     - docker push larsvh/meteor
   artifacts:
     paths:
