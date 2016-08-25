@@ -11,16 +11,16 @@ before_script:
 LATEST:
   stage: build
   script:
-    - docker build -t meteor-latest .
-    - export RELEASE_VERSION=latest
+    - docker build -t meteor .
+    - docker tag meteor larsvh/meteor:latest
   only:
     - master
 
 v1.2.1:
   stage: build
   script:
-    - docker build -t meteor-1.2.1 .
-    - export RELEASE_VERSION=1.2.1
+    - docker build -t meteor .
+    - docker tag meteor larsvh/meteor:1.2.1
   only:
     - v1.2.1
 
@@ -28,7 +28,5 @@ PUBLISH:
   stage: deploy
   script:
     - docker login -u $DH_USER -p $DH_PASS hub.docker.com
-    - ls -al ~/.docker/
-    - docker tag meteor-$RELEASE_VERSION larsvh/meteor:$RELEASE_VERSION
     - docker images
-    - docker push larsvh/meteor:$RELEASE_VERSION
+    - docker push larsvh/meteor
