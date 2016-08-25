@@ -2,6 +2,9 @@ image: docker:latest
 services:
   - docker:dind
 
+variables:
+  DOCKER_DRIVER: overlay
+
 before_script:
   - docker info
 
@@ -9,7 +12,7 @@ LATEST:
   stage: build
   script:
     - docker build -t meteor-latest .
-    - export $RELEASE_VERSION=latest
+    - export RELEASE_VERSION=latest
   only:
     - master
 
@@ -17,7 +20,7 @@ v1.2.1:
   stage: build
   script:
     - docker build -t meteor-1.2.1 .
-    - export $RELEASE_VERSION=1.2.1
+    - export RELEASE_VERSION=1.2.1
   only:
     - v1.2.1
 
