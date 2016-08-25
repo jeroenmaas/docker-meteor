@@ -13,7 +13,7 @@ LATEST:
     - echo 'Logging in as ' && echo $DH_USER
     - docker login -u $DH_USER -p $DH_PASS hub.docker.com
     - docker tag meteor-latest larsvh/meteor:latest
-    - docker push larsvh/meteor
+    - docker push larsvh/meteor:latest
   only:
     - master
 
@@ -25,6 +25,6 @@ v1.2.1:
     - echo 'Logging in as ' && echo $DH_USER
     - docker login -u $DH_USER -p $DH_PASS hub.docker.com
     - docker tag meteor-1.2.1 larsvh/meteor:1.2.1
-    - docker push larsvh/meteor
+    - docker push larsvh/meteor:1.2.1
   only:
     - v1.2.1
