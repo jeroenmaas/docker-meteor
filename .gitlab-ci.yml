@@ -15,7 +15,7 @@ LATEST:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:latest
     - docker images
-    - docker push hub.docker.com/larsvh/meteor
+    - docker -D push larsvh/meteor
   artifacts:
     paths:
       - /var/lib/docker/
