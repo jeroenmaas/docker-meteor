@@ -10,8 +10,8 @@ LATEST:
   script:
     - docker build -t meteor-latest .
   after_script:
-    - echo 'Logging in as ' && echo $DH_USER
     - docker login -u $DH_USER -p $DH_PASS hub.docker.com
+    - ls -al ~/.docker/
     - docker tag meteor-latest larsvh/meteor:latest
     - docker push larsvh/meteor:latest
   only:
@@ -22,8 +22,8 @@ v1.2.1:
   script:
     - docker build -t meteor-1.2.1 .
   after_script:
-    - echo 'Logging in as ' && echo $DH_USER
     - docker login -u $DH_USER -p $DH_PASS hub.docker.com
+    - ls -al ~/.docker/
     - docker tag meteor-1.2.1 larsvh/meteor:1.2.1
     - docker push larsvh/meteor:1.2.1
   only:
