@@ -13,6 +13,9 @@ LATEST:
   script:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:latest
+  artifacts:
+    paths:
+      - /var/lib/docker/aufs/
   only:
     - master
 
@@ -21,6 +24,9 @@ v1.2.1:
   script:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:1.2.1
+  artifacts:
+    paths:
+      - /var/lib/docker/aufs/
   only:
     - v1.2.1
 
