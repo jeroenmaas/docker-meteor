@@ -14,7 +14,7 @@ LATEST:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:latest
     - docker images
-    - docker login -u $DH_USER -p $DH_PASS hub.docker.com
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - docker -D push larsvh/meteor
   artifacts:
     paths:
@@ -28,7 +28,7 @@ v1.2.1:
     - docker build -t meteor .
     - docker tag meteor larsvh/meteor:1.2.1
     - docker images
-    - docker login -u $DH_USER -p $DH_PASS https://hub.docker.com
+    - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - docker push larsvh/meteor
   artifacts:
     paths:
