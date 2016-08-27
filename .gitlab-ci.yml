@@ -16,7 +16,7 @@ LATEST:
     - docker images
     - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - docker -D push larsvh/meteor
-    - apt-get install git-core
+    - apk add git
     - git push --mirror https://$GITHUB_USER:$GITHUB_TOKEN@github.com/larsvanherk/docker-meteor.git
   only:
     - master
