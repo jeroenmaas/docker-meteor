@@ -3,6 +3,8 @@ Meteor for Docker
 
 LATEST: [![build status](https://git.larsvanherk.com/docker-images/meteor/badges/master/build.svg)](https://git.larsvanherk.com/docker-images/meteor/commits/master)
 
+You can find this image on the [Docker Hub!](https://hub.docker.com/r/larsvh/meteor/)
+
 This is a simple Meteor Docker image with support for live development and automated project building.
 
 Built on the [NodeJS](https://hub.docker.com/_/node/) image, it lets you run and build Meteor apps without having to install the Meteor tool itself.
