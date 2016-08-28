@@ -36,7 +36,7 @@ elif [ $APP_ENV == "production" ] ; then
   meteor build /app/build/ --architecture os.linux.x86_64
   cd /app/build/
   echo "Unpacking build tarball..."
-  tar -xvf app.tar.gz
+  tar -xvf src.tar.gz
 
   # Install required npm packages locally for the node app.
   cd bundle/programs/server
