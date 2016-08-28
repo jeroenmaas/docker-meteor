@@ -15,17 +15,21 @@ RUN curl https://install.meteor.com/ | sh
 ## Install forever ##
 RUN npm install forever -g
 
-## Prep for running ##
+## Create volumes ##
 VOLUME /app
-WORKDIR /app
+VOLUME /src
+
+## Set inital work directory ##
+WORKDIR /src
 
 ## Open port ##
 EXPOSE ${PORT:-8080}
 
-ADD run.sh /run.sh
-
 ## Specify Meteor release ##
 ENV METEOR_RELEASE=1.4.1.1
+
+## Copy over the runscript ##
+ADD run.sh /run.sh
 
 ## Define entrypoint ##
 ENTRYPOINT ["/bin/bash", "/run.sh"]

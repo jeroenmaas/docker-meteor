@@ -4,17 +4,16 @@
 if [ $APP_ENV == "development" ] ; then
 
   echo "Starting app in development mode..."
-  cd /app
 
   # Use custom settings file...
-  if [ -f "/app/settings.json" ] ; then
+  if [ -f "/src/settings.json" ] ; then
     echo "Detected settings.json file!"
-    meteor --release $METEOR_RELEASE --port $PORT --settings /app/settings.json
+    meteor --release $METEOR_RELEASE --port $PORT --settings /src/settings.json
 
   # Use default settings file, if provided...
-  elif [ -f "/app/settings-default.json" ] ; then
+  elif [ -f "/src/settings-default.json" ] ; then
     echo "No settings file detected, using default!"
-    meteor --release $METEOR_RELEASE --port $PORT --settings /app/settings-default.json
+    meteor --release $METEOR_RELEASE --port $PORT --settings /src/settings-default.json
 
   # Start without settings file...
   else
@@ -26,16 +25,16 @@ if [ $APP_ENV == "development" ] ; then
 elif [ $APP_ENV == "production" ] ; then
 
   echo "Beginning new production build of meteor app..."
-  cd /app
-  if [ -d "/src/build/" ] ; then
+
+  if [ -d "/app/build/" ] ; then
     echo Purging old build...
-    rm -rf /src/build/
+    rm -rf /app/build/
   fi
 
   # Build the meteor app and extract the tarball.
   echo "Building meteor application..."
-  meteor build /src/build/ --architecture os.linux.x86_64
-  cd /src/build/
+  meteor build /app/build/ --architecture os.linux.x86_64
+  cd /app/build/
   echo "Unpacking build tarball..."
   tar -xvf app.tar.gz
 
@@ -46,16 +45,16 @@ elif [ $APP_ENV == "production" ] ; then
 
   # Create METEOR_SETTINGS env variable.
   # Use custom settings file...
-  if [ -f "/app/settings.json" ] ; then
+  if [ -f "/src/settings.json" ] ; then
     echo "Detected settings file:"
-    cat /app/settings.json
-    export METEOR_SETTINGS=$(cat /app/settings.json | tr -d '\n')
+    cat /src/settings.json
+    export METEOR_SETTINGS=$(cat /src/settings.json | tr -d '\n')
 
   # Use default settings file, if provided...
-  elif [ -f "/app/settings-default.json" ] ; then
+  elif [ -f "/src/settings-default.json" ] ; then
     echo "No settings file detected, using default:"
-    cat /app/settings-default.json
-    export METEOR_SETTINGS=$(cat /app/settings-default.json | tr -d '\n')
+    cat /src/settings-default.json
+    export METEOR_SETTINGS=$(cat /src/settings-default.json | tr -d '\n')
 
   # Start without settings file...
   else
