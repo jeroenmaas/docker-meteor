@@ -1,7 +1,7 @@
 Meteor for Docker
 =================
 
-LATEST: [![build status](https://git.larsvanherk.com/docker-images/meteor/badges/master/build.svg)](https://git.larsvanherk.com/docker-images/meteor/commits/master)
+LATEST: [![build status](https://git.larsvanherk.com/docker-images/meteor/badges/master/build.svg)](https://git.larsvanherk.com/docker-images/meteor/commits/master) v1.2.1: [![build status](https://git.larsvanherk.com/docker-images/meteor/badges/v1.2.1/build.svg)](https://git.larsvanherk.com/docker-images/meteor/commits/v1.2.1)
 
 You can find this image on the [Docker Hub!](https://hub.docker.com/r/larsvh/meteor/)
 
@@ -56,3 +56,4 @@ automatically.
 At the moment, these are the supported Meteor versions:
 
 * [v1.4.1.1](https://git.larsvanherk.com/docker-images/meteor/tree/master)
+* [v1.2.1](https://git.larsvanherk.com/docker-images/meteor/tree/v1.2.1)
