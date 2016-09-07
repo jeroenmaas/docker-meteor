@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "Using Meteor v$METEOR_RELEASE"
+
 # Start the app in development mode...
 if [ $APP_ENV == "development" ] ; then
 
@@ -24,7 +26,7 @@ if [ $APP_ENV == "development" ] ; then
 # Start the app in production mode...
 elif [ $APP_ENV == "production" ] ; then
 
-  echo "Beginning new production build of meteor app..."
+  echo "Beginning new production build of Meteor app..."
 
   if [ -d "/app/build/" ] ; then
     echo Purging old build...
@@ -32,8 +34,9 @@ elif [ $APP_ENV == "production" ] ; then
   fi
 
   # Build the meteor app and extract the tarball.
-  echo "Building meteor application..."
-  meteor build /app/build/ --architecture os.linux.x86_64
+  echo "Building Meteor application..."
+  meteor --release $METEOR_RELEASE reset
+  meteor --release $METEOR_RELEASE build /app/build/ --architecture os.linux.x86_64
   cd /app/build/
   echo "Unpacking build tarball..."
   tar -xvf src.tar.gz
