@@ -3,7 +3,7 @@
 echo "Using Meteor v$METEOR_RELEASE"
 
 # Start the app in development mode...
-if [ $APP_ENV == "development" ] ; then
+if [ "$APP_ENV" == "development" ] ; then
 
   echo "Starting app in development mode..."
 
@@ -24,7 +24,7 @@ if [ $APP_ENV == "development" ] ; then
   fi
 
 # Start the app in production mode...
-elif [ $APP_ENV == "production" ] ; then
+elif [ "$APP_ENV" == "production" ] ; then
 
   echo "Beginning new production build of Meteor app..."
 
