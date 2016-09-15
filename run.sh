@@ -37,6 +37,7 @@ elif [ "$APP_ENV" == "production" ] ; then
   echo "Building Meteor application..."
   meteor --release $METEOR_RELEASE reset
   meteor --release $METEOR_RELEASE build /app/build/ --architecture os.linux.x86_64
+  meteor --release $METEOR_RELEASE reset
   cd /app/build/
   echo "Unpacking build tarball..."
   tar -xvf src.tar.gz
