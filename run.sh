@@ -68,9 +68,17 @@ elif [ "$APP_ENV" == "production" ] ; then
   #     Forever also auto-restarts server in case of a fatal crash.
   cd ../../
   echo "Starting server on port $PORT..."
-  su web -c "forever start -l meteorapp.log main.js"
-  su web -c "forever list"
-  tail -f /home/web/.forever/meteorapp.log
+
+  if [ "$PORT" -lt 1024 ]; then
+    echo "WARNING: Starting server with root access!"
+    forever start -l meteorapp.log main.js
+    forever list
+    tail -f /root/.forever/meteorapp.log
+  else
+    su web -c "forever start -l meteorapp.log main.js"
+    su web -c "forever list"
+    tail -f /home/web/.forever/meteorapp.log
+  fi
 
 else
 
