@@ -1,0 +1,28 @@
+---
+jobs:
+- name: docker-meteor-latest
+  public: true
+  serial: true
+  plan:
+  - get: git-repo
+    trigger: true
+  - put: docker-image
+    params:
+      IMAGE_REPO: larsvh/meteor
+      IMAGE_TAG: latest
+
+resources:
+- name: git-repo-latest
+  type: git
+  source:
+    uri: https://github.com/larsvanherk/docker-meteor
+    branch: master
+    private_key: {{github-private-key}}
+
+- name: docker-image
+  type: docker-image
+  source:
+    username: {{DOCKER_USER}}
+    password: {{DOCKER_PASSWORD}}
+    repository: {{IMAGE_REPO}}
+    tag: {{IMAGE_TAG}}
