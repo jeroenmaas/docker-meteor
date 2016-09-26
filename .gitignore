@@ -1,1 +1,5 @@
+# OSX SYSTEM FILES
 *.DS_Store
+
+# CONCOURSE CI
+credentials.yml

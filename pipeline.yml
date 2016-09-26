@@ -8,6 +8,7 @@ jobs:
     trigger: true
   - put: docker-image
     params:
+      build: latest/
       IMAGE_REPO: larsvh/meteor
       IMAGE_TAG: latest
 
