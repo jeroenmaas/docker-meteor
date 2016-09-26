@@ -4,7 +4,7 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: git-repo
+  - get: git-repo-latest
     trigger: true
   - put: docker-image
     params:
