@@ -9,8 +9,6 @@ jobs:
   - put: docker-image
     params:
       build: latest/
-      IMAGE_REPO: larsvh/meteor
-      IMAGE_TAG: latest
 
 resources:
 - name: git-repo-latest
@@ -25,5 +23,5 @@ resources:
   source:
     username: {{DOCKER_USER}}
     password: {{DOCKER_PASSWORD}}
-    repository: {{IMAGE_REPO}}
-    tag: {{IMAGE_TAG}}
+    repository: larsvh/meteor
+    tag: latest
