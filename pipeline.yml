@@ -2,7 +2,7 @@
 jobs:
 - name: LATEST
   public: true
-  serial: true
+  serial_groups: ['meteor-image']
   plan:
   - get: git-repo
     trigger: true
@@ -12,7 +12,7 @@ jobs:
 
 - name: STANDALONE
   public: true
-  serial: true
+  serial_groups: ['meteor-image']
   plan:
   - get: git-repo
     trigger: true
@@ -22,13 +22,13 @@ jobs:
 
 - name: v1.2.1
   public: true
-  serial: true
+  serial_groups: ['meteor-image']
   plan:
   - get: git-repo
     trigger: true
   - put: image-v1.2.1
     params:
-      build: git-repo/v.1.2.1
+      build: git-repo/v1.2.1
 
 resources:
 - name: git-repo
