@@ -4,9 +4,9 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: git-repo-latest
+  - get: git-repo
     trigger: true
-  - put: docker-image
+  - put: image-latest
     params:
       build: git-repo/latest
 
@@ -14,9 +14,9 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: git-repo-latest
+  - get: git-repo
     trigger: true
-  - put: docker-image
+  - put: image-standalone
     params:
       build: git-repo/standalone
 
@@ -24,9 +24,9 @@ jobs:
   public: true
   serial: true
   plan:
-  - get: git-repo-latest
+  - get: git-repo
     trigger: true
-  - put: docker-image
+  - put: image-v1.2.1
     params:
       build: git-repo/v.1.2.1
 
