@@ -1,6 +1,6 @@
 ---
 jobs:
-- name: docker-meteor-latest
+- name: LATEST
   public: true
   serial: true
   plan:
@@ -8,20 +8,56 @@ jobs:
     trigger: true
   - put: docker-image
     params:
-      build: git-repo-latest/latest
+      build: git-repo/latest
+
+- name: STANDALONE
+  public: true
+  serial: true
+  plan:
+  - get: git-repo-latest
+    trigger: true
+  - put: docker-image
+    params:
+      build: git-repo/standalone
+
+- name: v1.2.1
+  public: true
+  serial: true
+  plan:
+  - get: git-repo-latest
+    trigger: true
+  - put: docker-image
+    params:
+      build: git-repo/v.1.2.1
 
 resources:
-- name: git-repo-latest
+- name: git-repo
   type: git
   source:
     uri: https://github.com/larsvanherk/docker-meteor
     branch: master
     private_key: {{github-private-key}}
 
-- name: docker-image
+- name: image-latest
   type: docker-image
   source:
     username: {{DOCKER_USER}}
     password: {{DOCKER_PASSWORD}}
     repository: larsvh/meteor
     tag: latest
+
+- name: image-standalone
+  type: docker-image
+  source:
+    username: {{DOCKER_USER}}
+    password: {{DOCKER_PASSWORD}}
+    repository: larsvh/meteor
+    tag: standalone
+
+- name: image-v1.2.1
+  type: docker-image
+  source:
+    username: {{DOCKER_USER}}
+    password: {{DOCKER_PASSWORD}}
+    repository: larsvh/meteor
+    tag: v1.2.1
