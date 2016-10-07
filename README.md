@@ -65,6 +65,6 @@ It can be used as an image in CI servers, or as a way to use Meteor without inst
 
 At the moment, these are the supported Meteor versions:
 
-* [STANDALONE](https://github.com/larsvanherk/docker-meteor)
-* [v1.4.1.1](https://github.com/larsvanherk/docker-meteor)
-* [v1.2.1](https://github.com/larsvanherk/docker-meteor)
+* [v1.4.1.1 (LATEST)](https://github.com/larsvanherk/docker-meteor/tree/master)
+* [STANDALONE](https://github.com/larsvanherk/docker-meteor/tree/standalone)
+* [v1.2.1](https://github.com/larsvanherk/docker-meteor/tree/v1.2.1)
