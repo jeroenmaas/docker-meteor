@@ -1,15 +1,11 @@
 Meteor for Docker
 =================
 
-LATEST: [![build status](https://git.larsvanherk.com/docker-images/meteor/badges/master/build.svg)](https://git.larsvanherk.com/docker-images/meteor/commits/master) STANDALONE: [![build status](https://git.larsvanherk.com/docker-images/meteor/badges/standalone/build.svg)](https://git.larsvanherk.com/docker-images/meteor/commits/standalone) v1.2.1: [![build status](https://git.larsvanherk.com/docker-images/meteor/badges/v1.2.1/build.svg)](https://git.larsvanherk.com/docker-images/meteor/commits/v1.2.1)
-
 You can find this image on the [Docker Hub!](https://hub.docker.com/r/larsvh/meteor/)
 
 This is a simple Meteor Docker image with support for live development and automated project building.
 
 Built on the [NodeJS](https://hub.docker.com/_/node/) image, it lets you run and build Meteor apps without having to install the Meteor tool itself.
-
-You can find the source code [at the main repository](https://git.larsvanherk.com/docker-images/meteor), along with [the CI pipelines.](https://git.larsvanherk.com/docker-images/meteor/pipelines)
 
 ## What can I do with Meteor?
 
@@ -51,10 +47,15 @@ file, if your app needs to load specific settings.
 The image will build the app's tarball to the `/app/build` directory, then extract and install it
 automatically.
 
+### Standalone
+
+This version of the image is just a NodeJS image with the Meteor tool preinstalled.  
+It can be used as an image in CI servers, or as a way to use Meteor without installing it.
+
 ## Currently supported versions
 
 At the moment, these are the supported Meteor versions:
 
-* [STANDALONE](https://git.larsvanherk.com/docker-images/meteor/tree/standalone)
-* [v1.4.1.1](https://git.larsvanherk.com/docker-images/meteor/tree/master)
-* [v1.2.1](https://git.larsvanherk.com/docker-images/meteor/tree/v1.2.1)
+* [STANDALONE](https://github.com/larsvanherk/docker-meteor)
+* [v1.4.1.1](https://github.com/larsvanherk/docker-meteor)
+* [v1.2.1](https://github.com/larsvanherk/docker-meteor)
