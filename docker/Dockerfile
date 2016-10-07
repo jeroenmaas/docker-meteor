@@ -21,6 +21,3 @@ VOLUME /src
 
 ## Set inital work directory ##
 WORKDIR /src
-
-## Open port ##
-EXPOSE ${PORT:-8080}
