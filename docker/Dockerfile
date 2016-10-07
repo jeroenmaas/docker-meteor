@@ -24,12 +24,3 @@ WORKDIR /src
 
 ## Open port ##
 EXPOSE ${PORT:-8080}
-
-## Specify Meteor release ##
-ENV METEOR_RELEASE=1.4.1.1
-
-## Copy over the runscript ##
-ADD run.sh /run.sh
-
-## Define entrypoint ##
-ENTRYPOINT ["/bin/bash", "/run.sh"]
