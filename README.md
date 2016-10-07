@@ -11,9 +11,9 @@ Built on the [NodeJS](https://hub.docker.com/_/node/) image, it lets you run and
 
 |Image      |Status   |
 |---        |---      |
-|latest     |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=master)](https://travis-ci.org/larsvanherk/docker-meteor)|
-|standalone |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=latest)](https://travis-ci.org/larsvanherk/docker-meteor)|
-|v1.2.1     |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=v1.2.1)](https://travis-ci.org/larsvanherk/docker-meteor)|
+|latest     |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=master)](https://travis-ci.org/larsvanherk/docker-meteor)    |
+|standalone |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=standalone)](https://travis-ci.org/larsvanherk/docker-meteor)|
+|v1.2.1     |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=v1.2.1)](https://travis-ci.org/larsvanherk/docker-meteor)    |
 
 
 ## What can I do with Meteor?
