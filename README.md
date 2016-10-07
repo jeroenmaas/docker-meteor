@@ -7,6 +7,15 @@ This is a simple Meteor Docker image with support for live development and autom
 
 Built on the [NodeJS](https://hub.docker.com/_/node/) image, it lets you run and build Meteor apps without having to install the Meteor tool itself.
 
+## Current build status
+
+|Image      |Status   |
+|---        |---      |
+|latest     |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=master)](https://travis-ci.org/larsvanherk/docker-meteor)|
+|standalone |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=latest)](https://travis-ci.org/larsvanherk/docker-meteor)|
+|v1.2.1     |[![Build Status](https://travis-ci.org/larsvanherk/docker-meteor.svg?branch=v1.2.1)](https://travis-ci.org/larsvanherk/docker-meteor)|
+
+
 ## What can I do with Meteor?
 
 Meteor is a tool used to quickly build web and mobile applications.
