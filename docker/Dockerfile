@@ -22,9 +22,6 @@ VOLUME /src
 ## Set inital work directory ##
 WORKDIR /src
 
-## Open port ##
-EXPOSE ${PORT:-8080}
-
 ## Specify Meteor release ##
 ENV METEOR_RELEASE=1.4.1.1
 
