@@ -28,11 +28,11 @@ For more documentation, visit [the Meteor Guide.](https://guide.meteor.com/)
 
 ### Specify Meteor Versions (Patches)
 
-Normally, the image uses the most recent version for that image (e.g. v1.2.1 for meteor:1.2).  
+Normally, the image uses the most recent version for that image (e.g. `1.2.1` for `meteor:1.2`).  
 If you need a different patch version, you can specify it via the `$METEOR_RELEASE` environment variable.
 
 *Note*: The version specified in the `$METEOR_RELEASE` env variable MUST be a patch version belonging to the minor version  
-of that image! (e.g. v1.4.1.1 for meteor:1.4. Using v1.2.1 for meteor:1.4 will fail!)
+of that image! (e.g. `1.4.1.1` for `meteor:1.4`. Using `1.2.1` for `meteor:1.4` will fail!)
 
 ### Build Environments
 
