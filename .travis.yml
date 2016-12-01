@@ -9,6 +9,6 @@ script:
   - docker build -t larsvh/meteor ./docker
 
 after_success:
-    - docker tag larsvh/meteor larsvh/meteor:latest
+    - docker tag larsvh/meteor larsvh/meteor:1.4
     - docker login -u="$DOCKER_USER" -p="$DOCKER_PASSWORD"
     - docker push larsvh/meteor

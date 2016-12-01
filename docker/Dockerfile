@@ -1,5 +1,5 @@
 ## Init ##
-FROM node:0.10.45
+FROM node:4.6.2
 MAINTAINER Lars van Herk <me@larsvanherk.com>
 
 ## Add unpriviledged user. Used to run servers ##
@@ -13,19 +13,22 @@ RUN apt-get install curl -y
 RUN curl https://install.meteor.com/ | sh
 
 ## Install forever ##
-RUN npm install forever -g
+RUN npm install -g forever
 
-## Create volumes ##
-VOLUME /app
-VOLUME /src
+## Create working directories ##
+RUN su -c "mkdir /home/web/src /home/web/build" web
 
 ## Set inital work directory ##
-WORKDIR /src
+WORKDIR /home/web/src
 
-## Specify Meteor release ##
-ENV METEOR_RELEASE=1.4.1.1
+## Switch to default user "web" ##
+USER web
 
-## Copy over the runscript ##
+## Add directory ENV variables ##
+ENV SRC_BASE   /home/web/src
+ENV BUILD_BASE /home/web/build
+
+## Copy over the entrypoint runscript ##
 ADD run.sh /run.sh
 
 ## Define entrypoint ##
