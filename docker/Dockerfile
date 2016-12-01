@@ -1,5 +1,5 @@
 ## Init ##
-FROM node:4.6.2
+FROM node:0.10.45
 MAINTAINER Lars van Herk <me@larsvanherk.com>
 
 ## Add unpriviledged user. Used to run servers ##

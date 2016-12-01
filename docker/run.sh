@@ -3,15 +3,17 @@ set -e
 
 # Check if a specific Meteor release is required...
 if [ -z "${METEOR_RELEASE}" ] ; then
-  echo "No Meteor release specified, using latest 1.4 release..."
-else
-  if [[ !("${METEOR_RELEASE}" =~ ^1\.4\..*) ]] ; then
-    echo "ERROR: Specified release isn't a 1.4 release!"
-    echo "Please use the appropriate image version for your project!"
-    exit 1
-  fi
-  echo "Using Meteor v$METEOR_RELEASE"
+  echo "No Meteor release specified, using latest 1.2 release..."
+  export METEOR_RELEASE=1.2.1
 fi
+
+# Make sure the specified patch version is part of this image's minor version...
+if [[ !("${METEOR_RELEASE}" =~ ^1\.2\..*) ]] ; then
+  echo "ERROR: Specified release isn't a 1.2 release!"
+  echo "Please use the appropriate image version for your project!"
+  exit 1
+fi
+echo "Using Meteor v$METEOR_RELEASE..."
 
 echo "Using $SRC_BASE as source base dir and $BUILD_BASE as build base dir..."
 
@@ -19,9 +21,6 @@ echo "Using $SRC_BASE as source base dir and $BUILD_BASE as build base dir..."
 if [ "$APP_ENV" == "development" ] ; then
 
   echo "Starting app in development mode..."
-
-  echo "Setting up Node packages..."
-  npm install
 
   # Use custom settings file...
   if [ -f "$SRC_BASE/settings.json" ] ; then
@@ -61,10 +60,6 @@ elif [ "$APP_ENV" == "production" ] ; then
     rm -rf $BUILD_BASE/*
     meteor reset
   fi
-
-  # Build the Meteor app...
-  echo "Setting up Node packages..."
-  npm install
 
   echo "Beginning full build..."
   if [ -z "${METEOR_RELEASE}" ] ; then
