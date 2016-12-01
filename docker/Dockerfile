@@ -1,5 +1,5 @@
 ## Init ##
-FROM node:0.10.45
+FROM node:4.6.2
 MAINTAINER Lars van Herk <me@larsvanherk.com>
 
 ## Add unpriviledged user. Used to run servers ##
@@ -13,11 +13,10 @@ RUN apt-get install curl -y
 RUN curl https://install.meteor.com/ | sh
 
 ## Install forever ##
-RUN npm install forever -g
+RUN npm install -g forever
 
-## Create volumes ##
-VOLUME /app
-VOLUME /src
+## Create working directories ##
+RUN su -c "mkdir /home/web/src /home/web/build" web
 
 ## Set inital work directory ##
-WORKDIR /src
+WORKDIR /home/web/src
