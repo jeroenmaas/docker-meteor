@@ -108,6 +108,7 @@ elif [ "$APP_ENV" == "production" ] ; then
     echo "If you only want to run on port 80, please use a reverse proxy like NGinX instead!"
     exit 1
   else
+    rm /home/web/.forever/meteorapp.log
     forever start -l meteorapp.log main.js
     forever list
     tail -f /home/web/.forever/meteorapp.log
